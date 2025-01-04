@@ -32,20 +32,35 @@ nav h1 {
     color: #30475e;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s;
 }
 
-nav ul li a {
+.menu-toggle:hover {
+    color: #f05454;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    transition: max-height 0.3s ease;
+}
+
+.menu li a {
     text-decoration: none;
     font-weight: 600;
     color: #333;
     transition: color 0.3s;
 }
 
-nav ul li a:hover {
+.menu li a:hover {
     color: #f05454;
 }
 
@@ -312,15 +327,21 @@ form button:hover {
     nav {
         flex-direction: column;
         align-items: flex-start;
-        padding: 10px;
     }
 
-    nav ul {
-        display: flex;
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu {
         flex-direction: column;
-        gap: 10px;
-        width: 100%;
-        padding: 0;
+        align-items: flex-start;
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    .menu.active {
+        max-height: 500px;
     }
 
     nav ul li {
@@ -341,7 +362,6 @@ form button:hover {
         color: white;
     }
 
-    /* Ajustes del Header */
     header {
         padding: 50px 20px;
     }
@@ -355,7 +375,6 @@ form button:hover {
         font-size: 0.9rem;
     }
 
-    /* Ajustes de Galerías */
     .gallery-grid, .portfolio-grid {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
